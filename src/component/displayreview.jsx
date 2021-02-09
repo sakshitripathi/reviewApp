@@ -1,5 +1,12 @@
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
+import { withStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
+import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
 
 class DisplayReview extends React.Component {
     createCard = (reviews) => {
@@ -8,29 +15,28 @@ class DisplayReview extends React.Component {
         for(let i=0;i<reviews.length;i++){
             cards.push( <Card
                 style={{
-                  backgroundColor:'lightgrey',
+                  backgroundColor:'#29FF9F',
                   width: "40%",
                   height:"30%",
                   borderRadius: "2px",
 
                   paddingLeft: "9px",
-                  paddingTop: "8px",
+                  paddingTop: "10px",
                 }}
-              >   <font style={{fontSize: "15px"}}>
-                    <b>Title:</b>  {reviews[i].reviewTitle}
+                raised='true'
+              >   <font style={{fontSize: "20px",color:'blue', fontFamily:"serif"}}>
+                    {reviews[i].reviewTitle}
                       
                   </font><br/>
-                  <font style={{fontSize: "15px"}}>
+                  <font style={{fontSize: "15px", color : 'red', fontFamily:"serif"}}>
                   <b>Submitted by:</b>   {reviews[i].username}<br></br>
                   <b>Submitted on:</b>   {reviews[i].timeStamp}
 
                   </font>
-                  <br style={{lineHeight:"50px"}}></br>
-                  <font style={{fontSize: "15px"}}>
-                      <b>Review : </b>{reviews[i].review}
-                  </font>
-                  
-                
+                  <br style={{lineHeight:"30px"}}></br>
+                  <font style={{fontSize: "15px",color:'brown',backgroundColor:'#46FAA9', fontFamily:"serif"}}>
+                      {reviews[i].review}
+                  </font>                 
               </Card>)
             cards.push(<br/>)
         }
@@ -65,8 +71,8 @@ render(){
         },
       ];
    return(
-       <div>
-       <center><font><h2><b>Subject Title: </b>{data[0].subjectTitle}</h2></font> </center>  
+       <div style={{backgroundImage:'url(/bg_image.jpg)', height:"1000px"}}>
+       <center><font style={{fontFamily:"serif",color:'#FA5846',fontSize:"20px"}}><h2><b>Subject Title: </b>{data[0].subjectTitle}</h2></font> </center>  
          <center>{this.createCard(data[0].reviews)}</center> 
       </div>
       
