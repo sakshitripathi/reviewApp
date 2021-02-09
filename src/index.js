@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import AddReview from './component/addreview';
+import DisplayReview from './component/displayreview';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-        <Route path="/" component={ AddReview }/>
+        <Route path="/viewReview" component={ DisplayReview }/>
+        <Route path="/addReview" component={ AddReview }/>  
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
